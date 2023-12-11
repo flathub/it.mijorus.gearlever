@@ -1,7 +1,7 @@
 {
     "app-id": "it.mijorus.gearlever",
     "runtime": "org.gnome.Platform",
-    "runtime-version": "44",
+    "runtime-version": "45",
     "sdk": "org.gnome.Sdk",
     "command": "gearlever",
     "finish-args": [
@@ -61,7 +61,7 @@
                 {
                     "type": "git",
                     "url": "https://github.com/mijorus/gearlever.git",
-                    "commit": "b0e3324239f4e81df942fc61dcdcb53c86336a94"
+                    "commit": "4953436ece27adc8fe658f78fbbebb4b1a050f46"
                 }
             ]
         }
