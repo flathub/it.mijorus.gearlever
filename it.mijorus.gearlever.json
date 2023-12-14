@@ -5,12 +5,10 @@
     "sdk": "org.gnome.Sdk",
     "command": "gearlever",
     "finish-args": [
-        "--share=ipc",
+       "--share=ipc",
         "--socket=wayland",
         "--socket=fallback-x11",
         "--device=dri",
-        "--filesystem=xdg-data/applications:rw",
-        "--filesystem=xdg-data/icons:ro",
         "--filesystem=home:rw",
         "--talk-name=org.freedesktop.Flatpak",
         "--talk-name=org.freedesktop.portal.OpenURI",
@@ -61,7 +59,7 @@
                 {
                     "type": "git",
                     "url": "https://github.com/mijorus/gearlever.git",
-                    "commit": "90583c27ad5e18a6545442f5f7d41137d4f26f05"
+                    "commit": "5f180f6957dbc8067c0f2a18730f9f31248585f6"
                 }
             ]
         }
