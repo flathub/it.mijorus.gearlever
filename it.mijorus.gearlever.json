@@ -5,7 +5,8 @@
     "sdk": "org.gnome.Sdk",
     "command": "gearlever",
     "finish-args": [
-       "--share=ipc",
+        "--share=ipc",
+        "--share=network",
         "--socket=wayland",
         "--socket=fallback-x11",
         "--device=dri",
@@ -50,14 +51,26 @@
             ]
         },
         {
-            "name": "gearlever",
-            "builddir": true,
-            "buildsystem": "meson",
-            "sources": [
-                {
+            "name": "readelf-strings-binutils",
+            "buildsystem": "simple",
+            "build-commands": [
+                "install -Dm755 /usr/bin/readelf -t ${FLATPAK_DEST}/bin/",
+                "install -Dm755 /usr/bin/strings -t ${FLATPAK_DEST}/bin/",
+                "install -Dm755 /usr/bin/file -t ${FLATPAK_DEST}/bin/",
+                "install -Dm755 /usr/lib/$(gcc -print-multiarch)/libctf*.so.* -t ${FLATPAK_DEST}/lib/",
+                "install -Dm755 /usr/lib/$(gcc -print-multiarch)/libbfd*.so -t ${FLATPAK_DEST}/lib/",
+                "install -Dm755 /usr/lib/$(gcc -print-multiarch)/libsframe*.so.* -t ${FLATPAK_DEST}/lib/"
+            ]
+        },
+        {
+            "name" : "gearlever",
+            "builddir" : true,
+            "buildsystem" : "meson",
+            "sources" : [
+                 {
                     "type": "git",
                     "url": "https://github.com/mijorus/gearlever.git",
-                    "commit": "ee462273941c1c8b769ce3fdf5a4c43b90d8dd5e"
+                    "commit": "e12ebbbaaca7343c06adf67be9d31c7c8642ddbd"
                 }
             ]
         }
