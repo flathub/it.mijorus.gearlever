@@ -10,7 +10,7 @@
         "--socket=wayland",
         "--socket=fallback-x11",
         "--device=dri",
-        "--filesystem=home:rw",
+        "--filesystem=host:rw",
         "--talk-name=org.freedesktop.Flatpak"
     ],
     "cleanup": [
@@ -70,7 +70,7 @@
                  {
                     "type": "git",
                     "url": "https://github.com/mijorus/gearlever.git",
-                    "commit": "d3d4e20b95926c7ec6f84964ace1f10e52c88765"
+                    "commit": "7597cf3e78e02f777cb7e7082ca0b9d0f5d9ae02"
                 }
             ]
         }
