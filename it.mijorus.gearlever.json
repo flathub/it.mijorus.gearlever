@@ -26,7 +26,7 @@
     ],
     "modules": [
         "./python3-requirements.json",
-        {
+              {
             "name": "p7zip",
             "no-autogen": true,
             "make-args": [
@@ -51,6 +51,30 @@
             ]
         },
         {
+            "name": "dwarfs",
+            "buildsystem": "simple",
+            "build-commands": [
+                "install -Dm755 dwarfs/bin/dwarfsextract -t ${FLATPAK_DEST}/bin/",
+                "install -Dm755 dwarfs/bin/dwarfsck -t ${FLATPAK_DEST}/bin/"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "sha256": "3c82708e00af9d1622e78047efd216e4e29213a60aff3afa8326bade8353ea38",
+                    "url": "https://github.com/mhx/dwarfs/releases/download/v0.11.2/dwarfs-0.11.2-Linux-x86_64-clang.tar.xz",
+                    "dest": "dwarfs",
+                    "only-arches": ["x86_64"]
+                },
+                {
+                    "type": "archive",
+                    "sha256": "3c82708e00af9d1622e78047efd216e4e29213a60aff3afa8326bade8353ea38",
+                    "url": "https://github.com/mhx/dwarfs/releases/download/v0.11.2/dwarfs-0.11.2-Linux-aarch64-clang.tar.xz",
+                    "dest": "dwarfs",
+                    "only-arches": ["aarch64"]
+                }
+            ]
+        },
+        {
             "name": "readelf-strings-binutils",
             "buildsystem": "simple",
             "build-commands": [
@@ -70,7 +94,7 @@
                  {
                     "type": "git",
                     "url": "https://github.com/mijorus/gearlever.git",
-                    "commit": "3130920c2b22f543892f17c1fc4d1e7c5c8079d3"
+                    "commit": "d954267ae20e633624ca301d8fa0c1c621cc85fd"
                 }
             ]
         }
