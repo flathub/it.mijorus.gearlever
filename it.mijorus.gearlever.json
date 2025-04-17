@@ -27,26 +27,35 @@
     ],
     "modules": [
         "./python3-requirements.json",
-        {
-            "name": "p7zip",
-            "no-autogen": true,
-            "make-args": [
-                "7z"
+ {
+            "name": "7zip",
+            "buildsystem": "simple",
+            "build-commands": [
+                "tar -xf 7z/7z.tar.xz -C 7z",
+                "install -Dm755 7z/7zz -t ${FLATPAK_DEST}/bin/"
             ],
             "cleanup": [
-                "/man",
-                "/share"
+                "7z"
             ],
             "sources": [
                 {
-                    "type": "archive",
-                    "url": "https://github.com/p7zip-project/p7zip/archive/v17.05.tar.gz",
-                    "sha256": "d2788f892571058c08d27095c22154579dfefb807ebe357d145ab2ddddefb1a6"
+                    "type": "file",
+                    "url": "https://github.com/ip7z/7zip/releases/download/24.09/7z2409-linux-x64.tar.xz",
+                    "sha256": "914c7e20ad5ef8e4d3cf08620ff8894b28fe11b7eb99809d6930870fbe48a281",
+                    "dest": "7z",
+                    "dest-filename": "7z.tar.xz",
+                    "only-arches": [
+                        "x86_64"
+                    ]
                 },
                 {
-                    "type": "shell",
-                    "commands": [
-                        "sed -i 's|/usr/local|/app|g' makefile.common"
+                    "type": "archive",
+                    "url": "https://github.com/ip7z/7zip/releases/download/24.09/7z2409-linux-arm64.tar.xz",
+                    "sha256": "fbe331697c9417bbc06fc92d3f4576dca6a5a1442fad7ae810304446a9153e2c",
+                    "dest": "7z",
+                    "dest-filename": "7z.tar.xz",
+                    "only-arches": [
+                        "aarch64"
                     ]
                 }
             ]
